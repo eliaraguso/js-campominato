@@ -5,10 +5,6 @@
 // Al termine della partita il software deve comunicare il punteggio.
 
 
-// Chiedere all'utente di inserire il numero di celle di cui sarà composto il campo da gioco.
-// Tramite una funzione javascript disegnare in pagina la griglia con massimo 10 celle per riga.
-// Al click su una cella dovrà essere mostrato con un alert il numero della cella e il suo background diventerà rosso.
-
 // ----------------FUNZIONI-----------------
 
 // Funzione per creare la griglia di gioco
@@ -47,7 +43,7 @@ let idCampo = "campo";
 
 
 // definisco una variabile di controllo per la forma della scacchiera (deve essere un quadrato)
-let totaleRighe = Math.sqrt(totaleCelle);
+// let totaleRighe = Math.sqrt(totaleCelle);
 // console.log(totaleRighe);
 
 // Creo un ciclo per verificare che
@@ -71,13 +67,20 @@ while (isNaN(totaleCelle) || totaleCelle < 4 || totaleCelle >100 ) {
 // }
 
 
-// faccio si che all'evento click sopra ogni cella, una funzione che creo, faccia cambiare colore alla cella e riporti un alert col numero della cella selezionata
-document.getElementById(idCampo).addEventListener("click",
-    function(event){
-        event.target.classList.add("cliccato");
-        alert(event.target.innerHTML);
-    }
-);
+// faccio si che all'evento click sopra ogni cella, una funzione che creo, 
+// faccia cambiare colore alla cella e riporti un alert col numero della cella selezionata
+
+let numeriSelezionati = [];
+
+function onClick (event){
+    event.target.classList.add("cliccato");
+    alert(event.target.innerHTML);
+}
+
+
+document.getElementById(idCampo).addEventListener("click", onClick);
+
+
 
 
 
@@ -86,12 +89,14 @@ creaGriglia(totaleCelle, "campo");
 
 // Creo un array di 16 numeri casuali non ripetuti
 let arrayBombe = [];
+
 while(arrayBombe.length < 16){
     var r = Math.floor(Math.random() * 100) + 1;
-    if(arrayBombe.indexOf(r) === -1) arrayBombe.push(r);
+    if(arrayBombe.indexOf(r) === -1) {
+        arrayBombe.push(r);
+    } 
 }
-console.log(arrayBombe);
-
+// console.log(arrayBombe);
 
 
 
