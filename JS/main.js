@@ -51,14 +51,20 @@ function getRndInteger(min, max) {
  */
 
 // variabili di base
-var numeroCelle = prompt("Inserisci la difficoltà scegliendo tra 1, 2 o 3"); // 100, 81, 49
-if (numeroCelle == 1) {
+do {
+	var livello = parseInt(prompt("inserisci il livello: 0, 1 ,2"))
+} while(livello != 0 && livello != 1 && livello != 2)
+
+// var numeroCelle; 100, 80, 50 
+
+if (livello == 0) {
 	numeroCelle = 100;
-} else if (numeroCelle == 2) {
-	numeroCelle = 8;
-} else if (numeroCelle == 3) {
+} else if (livello == 1) {
+	numeroCelle = 80;
+} else if (livello == 2) {
 	numeroCelle = 50;
-}
+} 
+
 var nBombe = 16;
 var possibilita = numeroCelle - nBombe;
 
